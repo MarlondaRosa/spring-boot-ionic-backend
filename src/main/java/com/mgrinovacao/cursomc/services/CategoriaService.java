@@ -17,8 +17,10 @@ public class CategoriaService {
 		 Optional<CategoriaDomain> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		 "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaDomain.class.getName()));
-		} 
-
-
-
+		}
+	
+	public CategoriaDomain insert(CategoriaDomain obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }
